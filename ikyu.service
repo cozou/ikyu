@@ -1,0 +1,13 @@
+[Unit]
+Description=Ikyu
+
+[Service]
+Type = simple
+Restart=always
+WorkingDirectory=/var/service/cozou/ikyu
+ExecStart=sh bin/hubot
+ExecStop=/bin/kill $MAINPID
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

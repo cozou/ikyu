@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+npm install
+export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
+export REDIS_URL=redis://127.0.0.1:6379/hubot
+
+exec node_modules/.bin/hubot --name "ikyu" "$@"
