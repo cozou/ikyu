@@ -4,7 +4,7 @@ module.exports = (robot) ->
   send = (channel, msg) ->
     robot.send { room: channel }, msg
 
-  new cronJob('0 0 12 * * 1-5', () ->
+  new cronJob('0 0 12 * * 5', () ->
     send '#workday', """
 お疲れさまです！今日のあなたの想いを共有しましょう！
 ```
@@ -16,7 +16,7 @@ module.exports = (robot) ->
 """
   ).start()
 
-  new cronJob('0 0 20 * * 1-5', () ->
+  new cronJob('0 0 20 * * 5', () ->
     seed = Math.floor(Math.random() * list.length)
     send '#workday', """
 20時になりました！今日もお疲れさまです:+1:
